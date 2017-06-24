@@ -12,9 +12,15 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out) {
   var data = input;
 
+  console.log(out)
+
   out.w("<p>Marko: " +
     marko_escapeXml(input.markoData) +
     "</p>");
+
+  if (out.global.flags.aFlag) {
+    out.w("<p>Flag is on</p>");
+  }
 
   hbs_tag({
       partial: "nested",

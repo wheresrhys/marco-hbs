@@ -18,7 +18,12 @@ app.get('/', function(req, res) {
   res.render('page', {
   	layout: 'layout',
   	hbsData: 'hbs content',
-  	markoData: 'marko content'
+  	markoData: 'marko content',
+  	$global: {
+  		flags: {
+	  		aFlag: true
+	  	}
+	  }
   })
 });
 
