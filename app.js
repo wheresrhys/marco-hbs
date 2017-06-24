@@ -4,14 +4,8 @@ var express = require('express');
 var markoExpress = require('marko/express');
 var marko = require('marko');
 
-var hbs = require('express-hbs');
 var app = express();
-
-hbs.registerHelper('marko', function (filename, options) {
-	const tpl = require(__dirname + '/views/marko-partials/' + filename)
-	return tpl.renderSync(this).toString();
-});
-
+var hbs = require('./hbs');
 
 app.engine('hbs', hbs.express4({
   partialsDir: __dirname + '/views/hbs-partials',
