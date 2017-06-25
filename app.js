@@ -15,15 +15,11 @@ app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
 app.get('/', function(req, res) {
+  res.locals.flags = {aFlag: true}
   res.render('page', {
   	layout: 'layout',
   	hbsData: 'hbs content',
-  	markoData: 'marko content',
-  	$global: {
-  		flags: {
-	  		aFlag: true
-	  	}
-	  }
+  	markoData: 'marko content'
   })
 });
 
